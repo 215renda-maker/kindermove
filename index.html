@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ToddlerMotion - 幼儿运动监测</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Noto Sans SC', sans-serif;
+        background-color: #f8fafc;
+      }
+      /* Fallback style for raw file opening */
+      .server-warning {
+        display: none;
+        padding: 40px;
+        text-align: center;
+        background: #fee2e2;
+        color: #991b1b;
+        margin: 20px;
+        border-radius: 8px;
+        border: 1px solid #fca5a5;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root">
+      <div class="server-warning" id="warning-msg">
+        <h2 class="text-xl font-bold mb-2">程序无法直接加载</h2>
+        <p class="mb-2">检测到您可能直接打开了 HTML 文件 (file://)。</p>
+        <p>由于现代浏览器的安全策略 (CORS)，本程序需要通过 Web 服务器运行。</p>
+        <p class="mt-4 font-mono text-sm bg-white p-2 rounded inline-block">
+          请在项目目录运行: npm install && npm run dev
+        </p>
+      </div>
+    </div>
+    
+    <script>
+      // Simple check to show warning if script doesn't load
+      setTimeout(() => {
+        const root = document.getElementById('root');
+        if (root && root.innerHTML.includes('server-warning')) {
+          document.getElementById('warning-msg').style.display = 'block';
+        }
+      }, 1000);
+    </script>
+    
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
